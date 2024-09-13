@@ -4,6 +4,8 @@ import { setIsSidebarCollapsed, setIsDarkMode } from "@/state";
 import { Bell, Menu, Moon, Settings, Sun } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import Image from "next/image";
+
 
 const Navbar = () => {
   const dispatch = useAppDispatch();
@@ -11,6 +13,9 @@ const Navbar = () => {
     (state) => state.global.isSidebarCollapsed
   );
   const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
+
+  console.log("sidebarcollpased: ", isSidebarCollapsed);
+  console.log("Darkmode: ", isDarkMode);
 
   const toggleSideBar = () => {
     dispatch(setIsSidebarCollapsed(!isSidebarCollapsed));
@@ -60,8 +65,10 @@ const Navbar = () => {
           </div>
           <hr className="w-0 h-7 border boder-solid border-l border-gray-300 mx-3" />
           <div className="flex items-center gap-3 cursor-pointer">
-            <div className="w-9 h-9">image</div>
-            <span className="font-semibold">ED RoH</span>
+            <div className="w-9 h-9">
+              <Image className="rounded-full" src="https://media.licdn.com/dms/image/v2/D5603AQGbOy6qVZ8dYQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1720112686694?e=1731542400&v=beta&t=DFnH27JoFt9BK5oBmOxEiVBIYXbqoBhSwoZ6fV_3JtU" alt="profileImage" width={36} height={36} />
+            </div>
+            <span className="font-semibold">Dean</span>
           </div>
         </div>
         <Link href="settings">
